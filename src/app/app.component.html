@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+<body>
+<header  [ngClass]="isVisible? 'opacity' : ''">
+  <span class="name"><span style="background-color: white; border-radius: 5px 0px 0px 5px; padding: 5px 2px 5px 5px; color:rgb(47, 0, 255);">Dushi</span> <span style="background-color: blue; border-radius: 0px 5px 5px 0px; padding: 5px 5px 5px 2px; color:rgb(255, 255, 255); margin-left: 0px;">Shop</span> </span>
+
+  <div class="center">
+    <span class="bio">Find the products that suit your needs</span>
+  </div>
+  <button id="cart" (click)="showCart()"><i  class="fa fa-cart-plus"></i>{{listCart.length}}</button>
+
+</header>
+<div class="content">
+  <div [ngClass]="isVisible? 'opacity' : ''"  class="items">
+    <h2>Available Products</h2>
+    
+      <table [ngClass]="isVisible? 'opacity' : ''" id="list">
+        <tr id="item" *ngFor="let item of list; let i = index">
+          <td></td>
+          <td  ><i id="icon" [innerHTML]="item.icon"></i></td>
+          <td ><h3>{{item.name |customPipe }}</h3></td>
+          <td><h4>{{ item.price | currency }}</h4></td>
+          <td><button   (click)="addToCart(i)" (click)="added()">Add to cart</button></td>
+      
+        </tr>
+      </table>
+    </div>
+    
+    
+    <div class="cart" *ngIf="isVisible">
+    <div id="tit" style="display: flex; justify-content: flex-end;">
+      <h2>Items in the cart </h2>
+      <i (click)="showCart()" class="fas fa-close" style="margin-left: 200px;" ></i>
+
+    </div>      
+      <table id="choosen" *ngIf="listCart.length!==0; else noItems">
+        <tr  class="listIncart">
+          <th> Number </th>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+        <tr id="listIncart"  *ngFor="let item of listCart; let index=index">
+          <td>{{index+1}}</td>
+          <td >{{item.name}}</td>
+          <td id="quantity" >
+            <button (click)="minusIt(item)">-</button>
+            <span>{{item.quantity}}</span>
+            <button (click)="addIt(item)">+</button>
+          </td>
+          <td>{{item.price | currency}}</td>
+          <td>{{(item.price * item.quantity).toFixed(2) | currency}}</td>
+          <td><button (click)="removeItem(index)">Remove</button></td>
+      
+        </tr>
+        <tr id="total" >
+          <td id="totalN">Total : </td>
+          <td id="totalV">{{getTotal() | currency}}</td>
+          <td><button (click)="buy()">Buy</button></td>
+        </tr>
+      </table>
+      <ng-template #noItems>
+    
+      <h4 style="margin-top: 100px;">No items in the cart</h4>
+    
+      </ng-template>
+    </div>
+    
+</div>
+  
+   
+
+  
+
+</body>
+</html>
