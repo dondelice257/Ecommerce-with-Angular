@@ -21,7 +21,7 @@
   <div [ngClass]="isVisible? 'opacity' : ' '"  class="items">
     <h2>Available Products</h2>
     
-      <table [ngClass]="isVisible? 'opacity' : ''" id="list">
+      <table [ngClass]="isVisible? 'opacity' : ' '" id="list">
         <tr id="item" *ngFor="let item of list; let i = index">
           <td></td>
           <td  ><i id="icon" [innerHTML]="item.icon"></i></td>
