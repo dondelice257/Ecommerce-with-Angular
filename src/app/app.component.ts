@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title: string= 'Shopping'
   isVisible :boolean = false
-  isAdded :boolean= true
+  isAdded :boolean= false
   list :any = [
   
       {
