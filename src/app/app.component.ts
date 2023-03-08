@@ -15,7 +15,7 @@ export class AppComponent {
         name: 'Tecno Spark',
         icon: '<i class="fas fa-mobile-alt"></i>',
         price: 120,
-        quantity : 2
+        quantity : 3
       },
       {
         name: 'iPhone 13',
