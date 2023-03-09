@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title: string=  'Shopping'
+  title: string= 'Shopping'
   isVisible :boolean =  false
   isAdded :boolean=  false
   list :any = [
