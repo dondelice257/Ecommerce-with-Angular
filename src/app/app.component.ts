@@ -27,7 +27,7 @@ export class AppComponent {
         name: 'PlayStation 5',
         icon: '<i class="fas fa-gamepad"></i>',
         price: 310,
-        quantity : 1
+        quantity :  1
       },
       {
         name: 'Playstation 3',
