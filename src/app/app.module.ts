@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CustomPipePipe } from './custom-pipe.pipe';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -10,6 +11,7 @@ import { CustomPipePipe } from './custom-pipe.pipe';
   declarations: [
     AppComponent,
     CustomPipePipe,
+    CartComponent,
    
   ],
   imports: [
